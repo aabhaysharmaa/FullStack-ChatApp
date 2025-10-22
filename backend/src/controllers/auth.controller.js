@@ -82,9 +82,7 @@ export const updateProfile = async (req, res, next) => {
 	try {
 		const { profilePic } = req.body;
 		if (!profilePic) return res.status(400).json({ message: "Profile Pic is required" });
-		console.log("Profile Pic : ", profilePic);
 		const userId = req.user?._id;
-		console.log("UserId : ", userId);
 		if(!userId) {
 			return res.status(400).json({ message: "User not found" });
 		}

@@ -7,7 +7,7 @@ router.use(isAuthenticated)
 router.get("/contacts", getContact);
 router.get("/chats", getChats)
 router.post("/send/:id", sendMessage);
-router.get("/:chatId", getMessages);
+router.get("/:id", getMessages);
 
 export default router;
 

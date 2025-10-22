@@ -9,7 +9,7 @@ import MessagesLoadingSkeleton from "./MessagesLoadingSkeleton.jsx";
 function ChatContainer() {
   const {
     selectedUser,
-    // getMessagesByUserId,
+    getMessagesByUserId,
     messages,
     isMessagesLoading,
     // subscribeToMessages,
@@ -18,13 +18,13 @@ function ChatContainer() {
   const { authUser } = useAuthStore();
   const messageEndRef = useRef(null);
 
-  // useEffect(() => {
-  //   getMessagesByUserId(selectedUser._id);
-  //   // subscribeToMessages();
+  useEffect(() => {
+    getMessagesByUserId(selectedUser._id);
+    // subscribeToMessages();
 
-  //   // clean up
-  //   return () => unsubscribeFromMessages();
-  // }, [selectedUser, getMessagesByUserId, subscribeToMessages, unsubscribeFromMessages]);
+    // clean up
+    // return () => unsubscribeFromMessages();
+  }, [selectedUser, getMessagesByUserId]);
 
   useEffect(() => {
     if (messageEndRef.current) {
@@ -46,7 +46,7 @@ function ChatContainer() {
                 <div
                   className={`chat-bubble relative ${
                     msg.senderId === authUser._id
-                      ? "bg-cyan-600 text-white"
+                      ? "bg-cyan-500 text-white"
                       : "bg-slate-800 text-slate-200"
                   }`}
                 >

@@ -39,12 +39,13 @@ export const sendMessage = async (req, res, next) => {
 export const getMessages = async (req, res, next) => {
 	try {
 		const currentLoggedInUser = req.user._id;
-		const { id } = req.body;
+		const id = req.params.id;
 		const message = await Message.find({
 			$or: [
 				{ senderId: id, receiverId: currentLoggedInUser }, { receiverId: id, senderId: currentLoggedInUser }
 			]
 		})
+		console.log("Messages" , message)
 		return res.status(200).json(message);
 	} catch (error) {
 		console.log("Error in sendMessage Controller : ", error.message);

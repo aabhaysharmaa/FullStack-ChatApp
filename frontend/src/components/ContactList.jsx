@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 import UsersLoadingSkeleton from "./UserLoadingSkeleton.jsx";
 // import { useAuthStore } from "../store/auth.store.js";
-import {useChatStore} from "../store/useChatStore.js";
+import { useChatStore } from "../store/useChatStore.js";
 
 function ContactList() {
   const { getAllContacts, allContacts, setSelectedUser, isUsersLoading } = useChatStore();
@@ -13,14 +13,14 @@ function ContactList() {
   }, [getAllContacts]);
 
   if (isUsersLoading) return <UsersLoadingSkeleton />;
-const users = Array.isArray(allContacts[0]) ? allContacts[0] : allContacts;
+  const users = Array.isArray(allContacts[0]) ? allContacts[0] : allContacts;
   return (
     <>
       {users.map((contact) => (
         <div
           key={contact._id}
           className="bg-cyan-500/10 p-4 rounded-lg cursor-pointer hover:bg-cyan-500/20 transition-colors"
-          onClick={() => setSelectedUser(contact) }
+          onClick={() => setSelectedUser(contact)}
         >
           <div className="flex items-center gap-3">
             <div className={`avatar`}>

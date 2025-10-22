@@ -2,13 +2,15 @@ import React from 'react'
 import { useChatStore } from '../store/useChatStore';
 import { useEffect } from 'react';
 import UsersLoadingSkeleton from './UserLoadingSkeleton';
-import NoChatsFound from './NoChatsfounds';
-
+import NoChatsFound from './NoChatsfounds'; 
 // import { useAuthStore } from '../store/auth.store';
 
 
 const ChatsList = () => {
   const { chats, getMyChatsPartners, isUsersLoading, setSelectedUser } = useChatStore();
+
+
+
   // const {onlineUsers} = useAuthStore();
 
   useEffect(() => {
@@ -21,7 +23,7 @@ const ChatsList = () => {
       {chats.map((chat) => (
         <div
           key={chat._id}
-          className="bg-cyan-500/10 p-4 rounded-lg cursor-pointer hover:bg-cyan-500/20 transition-colors"
+          className="bg-cyan-500/10 p-4  rounded-lg mt-2 cursor-pointer hover:bg-cyan-500/20 transition-colors"
           onClick={() => setSelectedUser(chat)}
         >
           <div className="flex items-center gap-3">
